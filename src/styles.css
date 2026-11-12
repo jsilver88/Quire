@@ -1,0 +1,98 @@
+@import "tailwindcss";
+@import "@fontsource/source-sans-3/latin-400.css";
+@import "@fontsource/source-sans-3/latin-500.css";
+@import "@fontsource/source-sans-3/latin-600.css";
+@import "@fontsource/newsreader/latin-500.css";
+@import "@fontsource/newsreader/latin-600.css";
+
+@theme {
+  --font-sans: "Source Sans 3", "Segoe UI", sans-serif;
+  --font-display: "Newsreader", Georgia, serif;
+
+  --color-bg: #f3f2ee;
+  --color-surface: #fbfbf9;
+  --color-paper: #ffffff;
+  --color-ink: #1c1d1a;
+  --color-muted: #5c5f59;
+  --color-faint: #8b8e87;
+  --color-line: #e3e1d8;
+  --color-line-strong: #cbc8be;
+  --color-wash: #eeeee8;
+  --color-paid: #1e6b43;
+  --color-paid-bg: #e4f2ea;
+  --color-due: #8d3b2c;
+  --color-due-bg: #f8ebe6;
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
+
+  --shadow-paper: 0 1px 2px rgb(28 29 26 / 0.05), 0 16px 40px rgb(28 29 26 / 0.06);
+}
+
+@layer base {
+  html {
+    background: var(--color-bg);
+    color: var(--color-ink);
+  }
+
+  body {
+    min-height: 100vh;
+    font-family: var(--font-sans);
+    background: var(--color-bg);
+    color: var(--color-ink);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled),
+  [role="switch"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  ::placeholder {
+    color: var(--color-faint);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .dialog-pop {
+    animation: quire-dialog-in 250ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .dialog-shade {
+    animation: quire-fade-in 200ms ease;
+  }
+}
+
+@keyframes quire-dialog-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes quire-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.quire-toast {
+  background: var(--color-ink) !important;
+  color: var(--color-paper) !important;
+  border: none !important;
+  border-radius: 0.5rem !important;
+  font-family: var(--font-sans) !important;
+}
